@@ -125,6 +125,5 @@ Below are some resources for getting help if you run into trouble:
 - [CodeNewbie Community Help Tag](https://community.codenewbie.org/t/help)
 - [Pythontutor](http://pythontutor.com/) for stepping through small code snippets visually.
 
-
 Additionally, [StackOverflow](http://stackoverflow.com/questions/tagged/python) is a good spot to search for your problem/question to see if it has been answered already.
  If not - you can always [ask](https://stackoverflow.com/help/how-to-ask) or [answer](https://stackoverflow.com/help/how-to-answer) someone else's question.

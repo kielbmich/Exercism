@@ -1,14 +1,15 @@
 def is_palindrome(number):
-    return str(number) == str(number)[::-1]
+    return True if str(number) == str(number)[::-1] else False
 
-def test_palindrome(i, j, palindrome, order):
+def better_than_previous(i, j, palindrome, order):
     if palindrome == None:
         return False 
-    if (order == 1 and i*j < palindrome) or (order == -1 and i*j > palindrome):
-        return 1 #Better than the previous palindrome
-    if (order == 1 and i*i > palindrome) or (order == -1 and i*i < palindrome):
-        return 2 #Best possible palindrome
-    return None
+    return True if (order == 1 and i*j < palindrome) or (order == -1 and i*j > palindrome) else False
+
+def best_possible_palindrome(i, palindrome, order):
+    if palindrome == None:
+        return False 
+    return True if (order == 1 and i*i > palindrome) or (order == -1 and i*i < palindrome) else False
 
 def analitics(max_factor, min_factor, order):
     factors = []
@@ -21,15 +22,13 @@ def analitics(max_factor, min_factor, order):
                     factors = [[i,j]]
                 elif i*j == palindrome:
                     factors.append([i,j])
-                if test_palindrome(i, j, palindrome, order) == 1: #"Better than the previous palindrome"
+                if better_than_previous(i, j, palindrome, order):
                     palindrome = i*j
                     factors = [[i,j]]
-            if palindrome and i*j < palindrome:
-                break
-        if test_palindrome(i, i, palindrome, order) == 2: #Best possible palindrome
+        if best_possible_palindrome(i, palindrome, order):
             break
     return (palindrome, factors)
-
+    
 def smallest(max_factor, min_factor = 0):
     if min_factor > max_factor:
         raise ValueError("min must be <= max")
